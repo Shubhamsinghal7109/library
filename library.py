@@ -9,7 +9,7 @@ def runonce():
     firebase_admin.initialize_app(cred,{'databaseURL':'https://database-ef85e-default-rtdb.firebaseio.com/'}) 
 
 runonce()
-choice=st.sidebar.selectbox("My MENU",("HOME","STUDENT LOGIN","ADMIN LOGIN","READ BOOK ONLINE"))
+choice=st.sidebar.selectbox("My MENU",("HOME","STUDENT LOGIN","ADMIN LOGIN","FEEDBACK"))
 st.title("LIBRARY MANAGEMENT SYSTEM")
 if(choice=="HOME"):
     st.image("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5iwSinVu1pygDZmERAkDdqYwzGGU2zqZtZ6g6YbczL8T2KsFA2r3fp04E5ENU236hkKs&usqp=CAU",width=500)
@@ -72,9 +72,5 @@ elif(choice=="ADMIN LOGIN"):
             ref2=db.reference("/Issue/").get()
             df=pd.DataFrame.from_dict(ref2,orient="index")
             st.dataframe(data=df)
-elif(choice=="READ BOOK ONLINE"):
-    c=st.selectbox("Choose Book",("NONE","SHERLOCK HOLMES","PYTHON"))
-    if(c=="SHERLOCK HOLMES"):
-        st.markdown('<iframe src="https://sherlock-holm.es/stories/pdf/a4/1-sided/advs.pdf" width="100%" height="500" title="sherlock"></iframe>',unsafe_allow_html=True)
-    elif(c=="PYTHON"):
-        st.markdown('<iframe src="http://www.halvorsen.blog/documents/programming/python/resources/Python%20Programming.pdf" width="100%" height="500" title="sherlock"></iframe>',unsafe_allow_html=True)
+elif(choice=="FEEDBACK"):
+    st.markdown('<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeZm0dU879AmNBeJMw4tkZ4AY35hjKc0asf2ljwXQpj1XCZqw/viewform?embedded=true" width="640" height="843" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>',unsafe_allow_html=True)
